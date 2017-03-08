@@ -9,11 +9,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#E0F2F1"
     tools:context="com.example.android.inclassassignment05_jingyuanl.Main2Activity">
 
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="My Book List"
-    android:id="@+id/info"/>
+    android:textSize="25sp"
+    android:gravity="center"
+    android:layout_marginBottom="20dp"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/info"
+    android:textSize="20sp"/>
 </LinearLayout>
