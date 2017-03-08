@@ -1,10 +1,12 @@
 package com.example.android.inclassassignment05_jingyuanl;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,6 +22,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bookList = new ArrayList<Book>();
+
+        String key = getString(R.string.saved_username);
+
+        SharedPreferences sharedPreference = getPreferences(MODE_PRIVATE);
+        String username = sharedPreference.getString(key,getString(R.string.saved_username));
+
+        TextView uD = (TextView)findViewById(R.id.username);
+        uD.setText("Welcome, " + username + "!");
+
+    }
+
+    public void changeUsername(View view){
+        EditText setUsername = (EditText)findViewById(R.id.setUsername);
+        String newUsername = setUsername.getText().toString();
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(getString(R.string.saved_username), newUsername);
+        editor.commit();
+
+        setUsername.setText("");
+
+        TextView uD = (TextView)findViewById(R.id.username);
+        uD.setText("Welcome, " + newUsername + "!");
+
+
     }
 
     public void bookInfo() {
